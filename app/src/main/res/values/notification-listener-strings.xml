@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nls_logging_tag">NOTIFICATION_event</string>
+    <string name="notification_text">Notification-text</string>
+    <string name="notification_package">Notification-package</string>
+    <string name="intent_action">com.myaxa.notification_transmitter.NOTIFICATION_EVENT</string>
+    <string name="listener_service_command">Notification-Listener-Service-Command</string>
+</resources>
