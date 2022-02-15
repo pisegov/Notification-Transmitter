@@ -25,15 +25,21 @@ class NLService : NotificationListenerService() {
     }
 
     override fun onNotificationPosted(sbn: StatusBarNotification?) {
-        if (sbn?.notification?.category == "msg") {
+        if (
+            sbn?.packageName == "com.instagram.lite" ||
+            sbn?.packageName == "com.zhiliaoapp.musically" ||
+            sbn?.packageName == "com.google.android.dialer" ||
+            sbn?.packageName == "com.android.messaging"
+        ) {
             Log.d(loggingTag, "posted")
             fetchNotification(sbn)
+//            cancelAllNotifications()
         }
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification?) {
         Log.d(loggingTag, "removed")
-        fetchNotification(sbn)
+//        fetchNotification(sbn)
     }
 
     override fun onDestroy() {

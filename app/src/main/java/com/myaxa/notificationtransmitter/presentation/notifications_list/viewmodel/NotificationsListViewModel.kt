@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class NotificationsListViewModel(private val repository: NotificationsRepository) : ViewModel() {
 
-    fun newNotification(): LiveData<NotificationModel> = repository.newNotification()
+    fun newNotification(): LiveData<NotificationModel> = repository.newNotificationSubscription()
 
     private var _activeNotifications = MutableLiveData<List<NotificationModel>>()
     val activeNotifications: LiveData<List<NotificationModel>> = _activeNotifications
