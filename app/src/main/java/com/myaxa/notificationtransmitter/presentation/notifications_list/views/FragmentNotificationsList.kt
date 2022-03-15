@@ -69,7 +69,11 @@ class FragmentNotificationsList : Fragment(R.layout.fragment_notifications_list)
 
         recycler = view.findViewById(R.id.rv_notifications_list)
         recycler?.adapter = adapter
-        recycler?.layoutManager = LinearLayoutManager(requireContext())
+        recycler?.layoutManager =
+            LinearLayoutManager(requireContext()).apply {
+                reverseLayout = true
+                stackFromEnd = true
+            }
     }
 
     private fun updateData() {
