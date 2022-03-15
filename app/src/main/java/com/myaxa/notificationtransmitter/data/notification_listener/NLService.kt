@@ -1,4 +1,4 @@
-package com.myaxa.notificationtransmitter.data
+package com.myaxa.notificationtransmitter.data.notification_listener
 
 import android.app.Notification
 import android.content.BroadcastReceiver
@@ -27,6 +27,7 @@ class NLService : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification?) {
         if (
             sbn?.packageName == "com.instagram.lite" ||
+            sbn?.packageName == "com.instagram.android" ||
             sbn?.packageName == "com.zhiliaoapp.musically" ||
             sbn?.packageName == "com.google.android.dialer" ||
             sbn?.packageName == "com.android.messaging"
