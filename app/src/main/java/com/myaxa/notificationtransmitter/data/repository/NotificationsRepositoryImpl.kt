@@ -2,6 +2,7 @@ package com.myaxa.notificationtransmitter.data.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import com.myaxa.notificationtransmitter.R
 import com.myaxa.notificationtransmitter.data.models.NotificationModel
 import com.myaxa.notificationtransmitter.data.notification_listener.NLServiceController
 import com.myaxa.notificationtransmitter.data.remote.retrofit.NetworkDataSource
@@ -13,7 +14,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 @ExperimentalSerializationApi
-class NotificationsRepositoryImpl(context: Context) : NotificationsRepository {
+class NotificationsRepositoryImpl(private val context: Context) : NotificationsRepository {
 
     private val networkDataSource = NetworkDataSource()
 
@@ -55,7 +56,7 @@ class NotificationsRepositoryImpl(context: Context) : NotificationsRepository {
                         val response = error.response()?.errorBody()?.source().toString()
                         NetworkResult.GenericError(response)
                     }
-                    else -> NetworkResult.GenericError("Undefined error")
+                    else -> NetworkResult.GenericError(context.getString(R.string.undefined_error))
                 }
             }
         }

@@ -7,18 +7,15 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import android.util.Log
 import com.myaxa.notificationtransmitter.R
 
 class NLService : NotificationListenerService() {
 
     private val receiver = CommandReceiver()
-    private lateinit var loggingTag: String
     private lateinit var intentActionString: String
 
     override fun onCreate() {
         intentActionString = getString(R.string.intent_action)
-        loggingTag = getString(R.string.nls_logging_tag)
         val filter = IntentFilter()
         filter.addAction(intentActionString)
         registerReceiver(receiver, filter)
@@ -32,15 +29,8 @@ class NLService : NotificationListenerService() {
             sbn?.packageName == "com.google.android.dialer" ||
             sbn?.packageName == "com.android.messaging"
         ) {
-            Log.d(loggingTag, "posted")
             fetchNotification(sbn)
-//            cancelAllNotifications()
         }
-    }
-
-    override fun onNotificationRemoved(sbn: StatusBarNotification?) {
-        Log.d(loggingTag, "removed")
-//        fetchNotification(sbn)
     }
 
     override fun onDestroy() {
@@ -57,8 +47,6 @@ class NLService : NotificationListenerService() {
         intent.putExtra(notificationTextString, notificationText)
         intent.putExtra(notificationPackageNameString, packageName)
         sendBroadcast(intent)
-
-        Log.d(loggingTag, notificationText.toString())
     }
 
     private inner class CommandReceiver : BroadcastReceiver() {

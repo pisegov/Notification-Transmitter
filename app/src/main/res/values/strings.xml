@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Notification Transmitter</string>
+    <string name="package_name">com.myaxa.notificationtransmitter</string>
+
+    <string name="notification_text_example">_myaxa shared a reel</string>
+
+    <string name="start_listening">Start</string>>
+    <string name="stop_listening">Stop</string>>
+
+    <string name="undefined_error">Undefined error</string>
+    <string name="generic_error">Generic error</string>
+    <string name="network_error">Network error</string>
 </resources>

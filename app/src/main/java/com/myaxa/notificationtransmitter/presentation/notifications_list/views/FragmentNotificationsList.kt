@@ -35,19 +35,19 @@ class FragmentNotificationsList : Fragment(R.layout.fragment_notifications_list)
         setupRecycler(view)
 
         executeButton = view.findViewById(R.id.btn_refresh)
-        executeButton?.text = "Start"
+        executeButton?.text = getString(R.string.start_listening)
         executeButton?.setOnClickListener {
 //            loadActiveNotifications()
 //            updateData()
             when (listenerStartupState) {
                 false -> {
                     executeButtonListener?.onStartButtonClicked()
-                    executeButton?.text = "Stop"
+                    executeButton?.text = getString(R.string.stop_listening)
                     listenerStartupState = true
                 }
                 true -> {
                     executeButtonListener?.onStopButtonClicked()
-                    executeButton?.text = "Start"
+                    executeButton?.text = getString(R.string.start_listening)
                     listenerStartupState = false
                 }
             }

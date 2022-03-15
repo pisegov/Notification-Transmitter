@@ -51,7 +51,7 @@ class NLServiceController(private val context: Context, val repository: Notifica
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
                                 context,
-                                "Generic Error",
+                                context?.getString(R.string.generic_error),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -60,7 +60,7 @@ class NLServiceController(private val context: Context, val repository: Notifica
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
                                 context,
-                                "Network Error",
+                                context?.getString(R.string.network_error),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
